@@ -1,4 +1,4 @@
-**# getmailchimp**
+**#mailchimp.py**
 This Python script is designed to automate the extraction and processing of marketing campaign data from Mailchimp. By leveraging the Mailchimp API, the script retrieves comprehensive information about all campaigns, including details such as campaign titles, types, audience information, performance metrics like open rates and click rates, and more. The requests library facilitates seamless communication with the Mailchimp API, while pandas organizes the fetched data into a structured Excel file for easy analysis and reporting.
 
 ![image](https://github.com/user-attachments/assets/2d8ba794-1d97-4f75-837c-46ae07913a84)
@@ -10,4 +10,15 @@ Configuration management is handled through a dedicated config.ini file, which s
 
 The core functionality of the script revolves around fetching campaign data, processing it, and exporting the results to an Excel file named with the current date for easy reference. The process_campaign_data function orchestrates the entire workflow by first retrieving all campaigns, then obtaining detailed information for each campaign, and finally compiling this data into a pandas DataFrame. Once the data is processed, it is saved to an Excel file in a sharepoint folder. This sharepoint folder enables data refreshes of our Tableau workbook. Throughout this process, the script logs each significant step, including the creation of directories, data fetching statuses, and the successful saving of the Excel file. This automation not only streamlines the data collection process but also ensures that marketing teams have timely and accurate insights into their campaign performance.
 
-**#getmailchimpsubs**
+**#mailsubs.py**
+This Python script is engineered to streamline the extraction and analysis of subscriber data from Mailchimp, providing marketing teams with comprehensive insights into their email campaigns. By utilizing the mailchimp_marketing library, the script connects to the Mailchimp API to retrieve detailed information about all contacts within a specified mailing list. The data includes essential attributes such as email addresses, signup and opt-in timestamps, subscription statuses, and the last time each contact’s information was updated. Leveraging the pandas library, the collected data is organized into a structured Excel file, facilitating easy manipulation, visualization, and reporting for further analysis.
+
+![image](https://github.com/user-attachments/assets/a64a420c-bd20-47f3-a19f-530b9b6e6165)
+
+
+Configuration management is handled through a dedicated mailchimpconfig.ini file, which securely stores critical parameters like the Mailchimp datacenter, API key, and the directory path where data and logs are stored. The script begins by verifying the existence of this configuration file and then reads the necessary settings to establish a connection with the Mailchimp API. Robust error handling mechanisms are in place to ensure that any missing configurations or issues with file access are promptly identified and reported, preventing the script from executing with incomplete or incorrect settings. This ensures reliability and consistency in data retrieval processes, minimizing the risk of errors during execution.
+
+![image](https://github.com/user-attachments/assets/b733af0a-4040-4a64-9bab-c98ff0e649fc)
+
+
+A key feature of this script is its ability to track the status of each email contact, providing granular details on subscriber gains and losses. While other Mailchimp API endpoints may only display current subscriber counts or net changes, this script delves deeper by capturing individual contact statuses, such as active, unsubscribed, or cleaned. This detailed tracking is crucial for understanding the dynamics of your mailing list, identifying trends in subscriber behavior, and making informed decisions to optimize email marketing strategies. By maintaining a comprehensive record of each contact’s status changes over time, the script enables precise monitoring of list health and the effectiveness of engagement efforts, ultimately contributing to more targeted and successful marketing campaigns.
